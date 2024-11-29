@@ -29,7 +29,7 @@ def check_date_two_weeks_from_now(date):
 
 def generate_countdown(datetime_string):
     datetime_object = datetime.datetime.strptime(datetime_string, "%Y%m%dT%H%M%S")
-    return "<t:" + str(int(time.mktime(datetime_object.timetuple())))) + ":R>"
+    return "<t:" + str(int(time.mktime(datetime_object.timetuple()))) + ":R>"
 
 def check_ping_logs_for_ctf(ctf_title):
     with open(PING_LOG_LOCATION) as ping_log:
