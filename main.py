@@ -51,14 +51,13 @@ async def ping_for_new_ctf(ctf, channel):
     print("Ping!")
     await channel.send(
         "\n========== <@&1311949816644767775> ===========" +
-        "\n## Title: " + ctf.title +
+        "\n## CTF: " + ctf.title +
         "\n**CTF Weight:** " + ctf.weight +
-        "\n**CTF-Time Link:** " + ctf.link +
-        "\n        **CTF Webpage Link:** <" + ctf.href + ">" +
-        "\n**Date/Time (Adl):** " + date_time_string_to_local_datetime_string(ctf.start_date) + 
-            " to " + date_time_string_to_local_datetime_string(ctf.finish_date) +
+        "\n**Date/Time (Adl):**  " + date_time_string_to_local_datetime_string(ctf.start_date) + 
+            "  to  " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\n        (**CTF Starts in:** " + generate_countdown(ctf.start_date) + ")" +
-        "\n========== <@&1311949816644767775> ==========="
+        "\n[CTF-Time Link](" + ctf.link + ")" + "[CTF Webpage Link](" + ctf.href + ")" +
+        "\n\n========== <@&1311949816644767775> ==========="
         )
 
 @tasks.loop(seconds=PING_CYCLE_TIME)
