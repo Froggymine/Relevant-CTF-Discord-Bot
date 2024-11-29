@@ -52,11 +52,11 @@ async def ping_for_new_ctf(ctf, channel):
     await channel.send(
         "\n========== <@&1311949816644767775> ===========" +
         "\n## CTF: " + ctf.title +
+        "\n**Links:** [CTF Time](" + ctf.link + ")" + ", [Offical CTF Wepage](<" + ctf.href + ">)" +
         "\n**CTF Weight:** " + ctf.weight +
         "\n**Date/Time (Adl):**  " + date_time_string_to_local_datetime_string(ctf.start_date) + 
             "  to  " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\n        (**CTF Starts in:** " + generate_countdown(ctf.start_date) + ")" +
-        "\n**Links:** [CTF Time](" + ctf.link + ")" + ", <[Offical CTF Wepage](" + ctf.href + ")>" +
         "\n\n========== <@&1311949816644767775> ==========="
         )
 
