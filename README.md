@@ -6,7 +6,8 @@ This bot takes the RSS feed for upcoming CTFs from ctftime.org, parses it for th
 (Discord markdown formating is different, thus this doesn't render exactly)
 
 ========== @Role ===========
-## CTF: CTF Name
+
+CTF: CTF Name
 
 Links:  CTF Time,  Offical CTF Wepage
 
