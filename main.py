@@ -55,7 +55,7 @@ async def ping_for_new_ctf(ctf, channel):
         "\n**Links:**  [CTF Time](" + ctf.link + ")" + ",  [Offical CTF Wepage](<" + ctf.href + ">)" +
         "\n**CTF Weight:**  " + ctf.weight +
         "\n**Date/Time (Adl):**  " + date_time_string_to_local_datetime_string(ctf.start_date) + "  (" + generate_countdown(ctf.start_date) + ")" +
-        "\n                                to:  " + date_time_string_to_local_datetime_string(ctf.finish_date) +
+        "\n                             to:  " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\n\n========== <@&1311949816644767775> ==========="
         )
 
