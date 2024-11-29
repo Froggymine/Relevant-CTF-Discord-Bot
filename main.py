@@ -41,7 +41,7 @@ def update_ping_logs_for_ctf(ctf_title):
 
 def date_time_string_to_local_datetime_string(datetime_string):
     datetime_object = datetime.datetime.strptime(datetime_string, "%Y%m%dT%H%M%S")
-    return datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M")
+    return datetime_object.get_weekday() + ", " + datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M")
 
 async def ping_for_new_ctf(ctf, channel):
     ''' Possible ones ['title', 'title_detail', 'links', 'link', 'summary', 'summary_detail', 'id', 'guidislink', 
@@ -56,9 +56,10 @@ async def ping_for_new_ctf(ctf, channel):
         "\n**CTF-Time Link:** " + ctf.link +
         "\n    **CTF Link:** <" + ctf.href + ">" +
         "\n**Date/Time (Adl):** " + date_time_string_to_local_datetime_string(ctf.start_date) + 
-            " to " + date_time_string_to_local_datetime_string(ctf.finish_date)
+            " to " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\n    (**Countdown:** " + generate_countdown(ctf.start_date) + ")" +
-        "\n========== <@&1311949816644767775> ===========")
+        "\n========== <@&1311949816644767775> ==========="
+        )
 
 @tasks.loop(seconds=PING_CYCLE_TIME)
 async def discord_ping_cycle(channel):
