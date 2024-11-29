@@ -41,7 +41,7 @@ def update_ping_logs_for_ctf(ctf_title):
 
 def date_time_string_to_local_datetime_string(datetime_string):
     datetime_object = datetime.datetime.strptime(datetime_string, "%Y%m%dT%H%M%S")
-    return datetime_object.get_weekday() + ", " + datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M")
+    return datetime_object.weekday() + ", " + datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M")
 
 async def ping_for_new_ctf(ctf, channel):
     ''' Possible ones ['title', 'title_detail', 'links', 'link', 'summary', 'summary_detail', 'id', 'guidislink', 
