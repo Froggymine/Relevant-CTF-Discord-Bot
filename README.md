@@ -3,7 +3,6 @@
 This bot takes the RSS feed for upcoming CTFs from ctftime.org, parses it for the ctfs relevant to my team, and sends a ping with the basic info to a discord channel in a server.
 
 ## Ping format example
-(Discord markdown formating is different, thus this doesn't render exactly)
 
 ```
 ========== @Role ===========
