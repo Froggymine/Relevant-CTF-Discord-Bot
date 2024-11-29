@@ -47,11 +47,11 @@ async def ping_for_new_ctf(ctf, channel):
     await channel.send(
         "<@&1311949816644767775> Next CTF in two weeks: " +
         "\nTitle: " + ctf.title +
+        "\nCTF Weight: " + ctf.weight +
         "\nCTF Time Link: " + ctf.link +
-        "\nStart Date and Time (Local): " + date_time_string_to_local_datetime_string(ctf.start_date) +
-        "\nFinish Date and Time (Local): " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\nCTF Link: <" + ctf.href + ">" +
-        "\nCTF Weight: " + ctf.weight)
+        "\nStart Date and Time (Local): " + date_time_string_to_local_datetime_string(ctf.start_date) +
+        "\nFinish Date and Time (Local): " + date_time_string_to_local_datetime_string(ctf.finish_date))
 
 @tasks.loop(seconds=PING_CYCLE_TIME)
 async def discord_ping_cycle(channel):
