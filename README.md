@@ -3,9 +3,10 @@
 This bot takes the RSS feed for upcoming CTFs from ctftime.org, parses it for the ctfs relevant to my team, and sends a ping with the basic info to a discord channel in a server.
 
 ## Ping format example
+(Discord markdown formating is different, thus this doesn't render exactly)
 
 ========== @Role ===========
-CTF: CTF Name
+## CTF: CTF Name
 Links:  CTF Time,  Offical CTF Wepage
 CTF Weight:  25.00
 Date/Time (Adl):  Sat,  2024-12-14, 17:30  (in 14 days)
