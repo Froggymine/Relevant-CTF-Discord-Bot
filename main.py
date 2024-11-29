@@ -1,5 +1,6 @@
-import feedparser
 import datetime
+import time
+import feedparser
 import discord
 from discord.ext import tasks
 
@@ -26,6 +27,10 @@ def check_date_two_weeks_from_now(date):
     # Check if the ctf start time is less than or equal to the the time two weeks from now 
     return True if ctf_date.date() <= (present + two_weeks_time_delta).date() else False
 
+def generate_countdown(datetime_string):
+    datetime_object = datetime.datetime.strptime(datetime_string, "%Y%m%dT%H%M%S")
+    return "<t:" + str(int(time.mktime(datetime_object.timetuple())))) + ":R>"
+
 def check_ping_logs_for_ctf(ctf_title):
     with open(PING_LOG_LOCATION) as ping_log:
         return True if ctf_title in ping_log.read() else False
@@ -36,7 +41,7 @@ def update_ping_logs_for_ctf(ctf_title):
 
 def date_time_string_to_local_datetime_string(datetime_string):
     datetime_object = datetime.datetime.strptime(datetime_string, "%Y%m%dT%H%M%S")
-    return datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M:%S")
+    return datetime_object.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None).strftime("%Y-%m-%d, %H:%M")
 
 async def ping_for_new_ctf(ctf, channel):
     ''' Possible ones ['title', 'title_detail', 'links', 'link', 'summary', 'summary_detail', 'id', 'guidislink', 
@@ -50,6 +55,7 @@ async def ping_for_new_ctf(ctf, channel):
         "\n**CTF Weight:** " + ctf.weight +
         "\n**CTF Time Link:** " + ctf.link +
         "\n**CTF Link:** <" + ctf.href + ">" +
+        "\n**Countdown:** " + generate_countdown(ctf.start_date) +
         "\n**Start Date/Time (Adl):** " + date_time_string_to_local_datetime_string(ctf.start_date) +
         "\n**Finish Date/Time (Adl):** " + date_time_string_to_local_datetime_string(ctf.finish_date) +
         "\n========== <@&1311949816644767775> ===========")
