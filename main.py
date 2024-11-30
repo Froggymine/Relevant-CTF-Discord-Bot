@@ -49,6 +49,7 @@ async def ping_for_new_ctf(ctf, channel):
     'weight', 'live_feed', 'restrictions', 'location', 'onsite', 'organizers', 'ctf_id', 'ctf_name'] '''
 
     print("Ping!")
+    
     await channel.send("<@&1311949816644767775> New CTF!")
 
     embed=discord.Embed(title=f"{ctf.title}", color=0x8000ff)
