@@ -8,7 +8,7 @@ This bot takes the RSS feed for upcoming CTFs from ctftime.org, parses it for th
 ========== @Role ===========
 
 # CTF: CTF Name
-Links:  CTF Time,  Offical CTF Wepage
+Links:  CTF Time,  Offical CTF Webpage
 CTF Weight:  25.00
 Date/Time (Adl):  Sat,  2024-12-14, 17:30  (in 14 days)
              to:  Sun,  2024-12-15, 17:30
