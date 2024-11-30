@@ -49,15 +49,20 @@ async def ping_for_new_ctf(ctf, channel):
     'weight', 'live_feed', 'restrictions', 'location', 'onsite', 'organizers', 'ctf_id', 'ctf_name'] '''
 
     print("Ping!")
-    await channel.send(
-        "\n========== <@&1311949816644767775> ===========" +
-        "\n## CTF: " + ctf.title +
-        "\n**Links:**  [CTF Time](" + ctf.link + ")" + ",  [Offical CTF Webpage](<" + ctf.href + ">)" +
-        "\n**CTF Weight:**  " + ctf.weight +
-        "\n**Date/Time (Adl):**  " + date_time_string_to_local_datetime_string(ctf.start_date) + "  (" + generate_countdown(ctf.start_date) + ")" +
-        "\n                             to:  " + date_time_string_to_local_datetime_string(ctf.finish_date) +
-        "\n\n========== <@&1311949816644767775> ==========="
-        )
+    
+    await channel.send("<@&1311949816644767775> New CTF!")
+
+    embed=discord.Embed(title=f"{ctf.title}", color=0x8000ff)
+
+    embed_img = f"https://ctftime.org{ctf.logo_url}"
+    # print(embed_img)
+    embed.set_thumbnail(url=embed_img)
+
+    embed.add_field(name="Links:", value=f"[CTF Time]({ctf.link}) | [Official CTF Webpage]({ctf.href})", inline=True)
+    embed.add_field(name="CTF Weight:", value=f"{ctf.weight}", inline=True)
+    embed.add_field(name="Date/Time (Adl):", value=f"**from: **{date_time_string_to_local_datetime_string(ctf.start_date)} ({generate_countdown(ctf.start_date)})\n**to:** {date_time_string_to_local_datetime_string(ctf.finish_date)}", inline=False)
+
+    await channel.send(embed=embed)
 
 @tasks.loop(seconds=PING_CYCLE_TIME)
 async def discord_ping_cycle(channel):
