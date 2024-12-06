@@ -7,7 +7,7 @@ from discord.ext import tasks
 PING_LOG_LOCATION = "pinglog.log"
 SECRET_LOCATION = "secret.txt"
 RSS_URL = "https://ctftime.org/event/list/upcoming/rss/"
-CHANNEL_ID = 1309395368475230238 # band-stuff
+CHANNEL_ID = 1314586135166582784 # band-stuff
 PING_CYCLE_TIME = 30 # seconds
 
 feed = feedparser.parse(RSS_URL) 
